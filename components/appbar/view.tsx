@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import Link from 'next/link'
+import Link from "next/link";
 
 function AppBarContent() {
   return (
@@ -22,9 +22,9 @@ function AppBarContent() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link href="/">
-            <a>Workify</a>
-          </Link>
+            <Link href="/">
+              <a>Workify</a>
+            </Link>
           </Typography>
           <Link href="/login">
             <a>login</a>

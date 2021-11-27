@@ -1,8 +1,15 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import AppBar from "../../components/appbar";
+import { ILoginPage } from "./index.d.ts";
+import { useEffect } from "react";
 
-function LoginPageContent() {
+function LoginPageContent(props: ILoginPage) {
+  useEffect(() => {
+    console.log(props);
+  }, []);
+
+  const { handleSubmitLoginForm, handleSetInputValue } = props;
   return (
     <div className={styles.container}>
       <Head>
@@ -28,7 +35,13 @@ function LoginPageContent() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <label htmlFor="email">email</label>
-          <input type="text" name="email" />
+          <input
+            onChange={(event) =>
+              handleSetInputValue(event.target.name, event.target.value)
+            }
+            type="text"
+            name="email"
+          />
         </div>
 
         <div
@@ -39,10 +52,21 @@ function LoginPageContent() {
           }}
         >
           <label htmlFor="password">password</label>
-          <input type="text" name="password" />
+          <input
+            onChange={(event) =>
+              handleSetInputValue(event.target.name, event.target.value)
+            }
+            type="text"
+            name="password"
+          />
         </div>
 
-        <button style={{ padding: "5px", width: "150px" }}>submit</button>
+        <button
+          onClick={handleSubmitLoginForm}
+          style={{ padding: "5px", width: "150px" }}
+        >
+          submit
+        </button>
       </div>
     </div>
   );
