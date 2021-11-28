@@ -1,0 +1,3 @@
+interface IHeadTagProps {
+  title?: string;
+}
